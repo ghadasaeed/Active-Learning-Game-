@@ -2,8 +2,10 @@ package com.ebookfrenzy.activelearninggame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
@@ -12,11 +14,9 @@ import java.util.Collections;
 
 public class Easy extends AppCompatActivity {
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_easy);
-//    }
+
+    int Score = 0;
+    int Total = 0;
 ArrayList<String> s;
     ArrayAdapter arrayAdapter;
     int n = 0;
@@ -96,16 +96,22 @@ ArrayList<String> s;
 
             @Override
             public void onLeftCardExit(Object o) {
+                Total++;
+                Toast.makeText(getApplicationContext(),":(",Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onRightCardExit(Object o) {
+                Total++;
+                Score++;
+                Toast.makeText(getApplicationContext(),":) Great",Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onAdapterAboutToEmpty(int i) {
+                gameEnd();
 
             }
 
@@ -115,5 +121,12 @@ ArrayList<String> s;
             }
         });
 
+    }
+
+    private void gameEnd(){
+        Intent intent = new Intent(Easy.this,ScoreActivity.class);
+        intent.putExtra("Score",Score);
+        intent.putExtra("Total",Total);
+        startActivity(intent);
     }
 }

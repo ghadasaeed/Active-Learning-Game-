@@ -2,8 +2,10 @@ package com.ebookfrenzy.activelearninggame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
@@ -13,11 +15,8 @@ import java.util.HashMap;
 
 public class Medium extends AppCompatActivity {
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_medium);
-//    }
+    int Score = 0;
+    int Total = 0;
 ArrayList<String> s;
     ArrayAdapter arrayAdapter;
     HashMap<String, String> words = new HashMap<>();
@@ -99,17 +98,24 @@ ArrayList<String> s;
 
             @Override
             public void onLeftCardExit(Object o) {
+                Total++;
+                Toast.makeText(getApplicationContext(),":(",Toast.LENGTH_SHORT).show();
+
 
             }
 
             @Override
             public void onRightCardExit(Object o) {
+                Total++;
+                Score++;
+                Toast.makeText(getApplicationContext(),":) Great",Toast.LENGTH_SHORT).show();
+
 
             }
 
             @Override
             public void onAdapterAboutToEmpty(int i) {
-
+                gameEnd();
             }
 
             @Override
@@ -118,5 +124,11 @@ ArrayList<String> s;
             }
         });
 
+    }
+    private void gameEnd(){
+        Intent intent = new Intent(Medium.this,ScoreActivity.class);
+        intent.putExtra("Score",Score);
+        intent.putExtra("Total",Total);
+        startActivity(intent);
     }
 }
