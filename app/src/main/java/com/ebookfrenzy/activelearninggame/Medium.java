@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Medium extends AppCompatActivity {
@@ -28,13 +29,14 @@ ArrayList<String> s;
         setContentView(R.layout.activity_main);
 
         s = new ArrayList<String >();
-        s.add("Medium");
-        s.add("Time");
-        s.add("Thing");
-        s.add("Life");
-        s.add("Government");
-        s.add("Place");
-        s.add("Public");
+        s.add("Kiwi キウイ");
+        s.add("Alcohol アルコール");
+        s.add("");
+        s.add("");
+
+
+        Collections.shuffle(s);
+
         SwipeFlingAdapterView swipeFlingAdapterView = (SwipeFlingAdapterView)findViewById(R.id.card);
 
         arrayAdapter = new ArrayAdapter<String>(this,R.layout.details,R.id.textView,s);

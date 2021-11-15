@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Hard extends AppCompatActivity {
 
@@ -28,13 +29,12 @@ ArrayList<String> s;
         s = new ArrayList<String >();
 
 
-        s.add("Hard");
-        s.add("Hard2");
-        s.add("Thing");
-        s.add("Life");
-        s.add("Government");
-        s.add("Place");
-        s.add("Public");
+        s.add("Computer コンピューター");
+        s.add("Time 時間");
+        s.add("");
+        s.add("");
+
+        Collections.shuffle(s);
         SwipeFlingAdapterView swipeFlingAdapterView = (SwipeFlingAdapterView)findViewById(R.id.card);
 
         arrayAdapter = new ArrayAdapter<String>(this,R.layout.details,R.id.textView,s);

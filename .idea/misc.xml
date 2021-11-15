@@ -4,8 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/surface/Desktop/Active-Learning-Game-/app/src/main/res/drawable/button_shape.xml" value="0.1" />
+        <entry key="..\:/Users/surface/Desktop/Active-Learning-Game-/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/surface/Desktop/Active-Learning-Game-/app/src/main/res/drawable/shape.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/surface/Desktop/Active-Learning-Game-/app/src/main/res/layout/activity_choose_one.xml" value="0.1" />
+        <entry key="..\:/Users/surface/Desktop/Active-Learning-Game-/app/src/main/res/layout/activity_easy.xml" value="0.175" />
         <entry key="..\:/Users/surface/Desktop/Active-Learning-Game-/app/src/main/res/layout/activity_main.xml" value="0.175" />
+        <entry key="..\:/Users/surface/Desktop/Active-Learning-Game-/app/src/main/res/layout/activity_medium.xml" value="0.175" />
         <entry key="..\:/Users/surface/Desktop/Active-Learning-Game-/app/src/main/res/layout/details.xml" value="0.335" />
         <entry key="..\:/Users/surface/Desktop/Active-Learning-Game-/app/src/main/res/layout/intro.xml" value="0.25" />
       </map>
