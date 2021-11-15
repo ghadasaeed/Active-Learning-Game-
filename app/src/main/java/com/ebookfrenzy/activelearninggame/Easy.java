@@ -27,12 +27,59 @@ ArrayList<String> s;
         setContentView(R.layout.activity_main);
 
         s = new ArrayList<String >();
-        s.add("Apple りんご(林檎");
+        s.add("Apple りんご(林檎)");
         s.add("Strawberry いちご(苺)");
         s.add("Orange みかん");
         s.add("Egg 卵");
-        s.add("");
-        s.add("");
+        s.add("Wood (Timber) 木材");
+        s.add("Tree 木");
+        s.add("Paper 紙");
+        s.add("Umbrella 傘/雨傘");
+        s.add("Stone 石");
+        s.add("Red 赤");
+        s.add("Green 緑");
+        s.add("Blue 青");
+        s.add("Sunday 日曜日");
+        s.add("Dog 犬");
+        s.add("Cat 猫");
+        s.add("Breakfast 朝食");
+        s.add("Lunch 昼食");
+        s.add("Dinner 夜食");
+        s.add("Desk　机");
+        s.add("Chair 椅子");
+        s.add("Car 車");
+        s.add("Bicycle 自転車");
+        s.add("Train 電車");
+        s.add("Bus バス");
+        s.add("Baseball 野球");
+        s.add("Soccer サッカー");
+        s.add("Birthday 誕生日");
+        s.add("Library 図書館");
+        s.add("Eye 目");
+        s.add("Nose 鼻");
+        s.add("Mouth 口");
+        s.add("Ear 耳");
+        s.add("Sea 海");
+        s.add("Beach 浜");
+        s.add("River 川");
+        s.add("Fish 魚");
+        s.add("Bird 鳥");
+        s.add("Holiday 休日");
+        s.add("Chocolate チョコレート");
+        s.add("Moon 月");
+        s.add("Sun 太陽");
+        s.add("Plane 飛行機");
+        s.add("Shoes 靴");
+        s.add("Rain 雨");
+        s.add("Snow 雪");
+        s.add("Cake ケーキ");
+        s.add("Tomato トマト");
+        s.add("Onion たまねぎ");
+        s.add("Carrot ニンジン");
+        s.add("Potato じゃがいも");
+
+
+
 
         Collections.shuffle(s);
 
