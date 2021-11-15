@@ -17,7 +17,7 @@
         app:max_visible="7"
         app:min_adapter_stack="8"
         app:rotation_degrees="20"
-        android:background="#F1ECD5"/>
+        />
 
 
 

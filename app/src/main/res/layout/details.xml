@@ -5,7 +5,8 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1ECD5">
+    android:background="@color/colorAccent"
+    >
 
 
     <TextView
@@ -13,12 +14,12 @@
 
         android:layout_width="279dp"
         android:layout_height="376dp"
-        android:background="@drawable/shape"
+        android:background="@drawable/button_shape"
         android:gravity="center"
         android:padding="10dp"
         android:radius="10dp"
         android:text="TextView"
-        android:textColor="#403136"
+        android:textColor="#ffff"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
