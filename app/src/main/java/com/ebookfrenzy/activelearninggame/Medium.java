@@ -3,8 +3,12 @@ package com.ebookfrenzy.activelearninggame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
@@ -12,8 +16,15 @@ import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class Medium extends AppCompatActivity {
+
+    private static final long COUNTDOWN_IN_MILLIS = 20000;
+    private ColorStateList textColorDefaultcd;
+    private CountDownTimer countDownTimer;
+    private long timeLeftinMillis;
+    private TextView textViewCountDown;
 
     int Score = 0;
     int Total = 0;
@@ -26,6 +37,9 @@ ArrayList<String> s;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        textViewCountDown = findViewById(R.id.timer);
+        textColorDefaultcd = textViewCountDown.getTextColors();
 
         s = new ArrayList<String >();
         s.add("Kiwi キウイ");
@@ -89,6 +103,8 @@ ArrayList<String> s;
 
         arrayAdapter = new ArrayAdapter<String>(this,R.layout.details,R.id.textView,s);
         swipeFlingAdapterView.setAdapter(arrayAdapter);
+        timeLeftinMillis = COUNTDOWN_IN_MILLIS;
+        startCountDown();
         swipeFlingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
             public void removeFirstObjectInAdapter() {
@@ -125,10 +141,53 @@ ArrayList<String> s;
         });
 
     }
+
+    private void startCountDown() {
+        countDownTimer = new CountDownTimer(timeLeftinMillis,1000) {
+            @Override
+            public void onTick(long milliUntilFinished) {
+                timeLeftinMillis= milliUntilFinished;
+                updateCountDownText();
+
+            }
+
+            @Override
+            public void onFinish() {
+                timeLeftinMillis = 0;
+                updateCountDownText();
+                gameEnd();
+
+            }
+        }.start();
+    }
+    private void updateCountDownText(){
+        int minutes = (int) (timeLeftinMillis / 1000) / 60;
+        int seconds = (int) (timeLeftinMillis / 1000) % 60;
+
+        String timeFormatted = String.format(Locale.getDefault(),"%02d:%02d",minutes,seconds);
+
+        textViewCountDown.setText(timeFormatted);
+        if(timeLeftinMillis < 5000) {
+            textViewCountDown.setTextColor(Color.RED);
+        }else{
+            textViewCountDown.setTextColor(textColorDefaultcd);
+        }
+    }
+
     private void gameEnd(){
         Intent intent = new Intent(Medium.this,ScoreActivity.class);
+        countDownTimer.cancel();
         intent.putExtra("Score",Score);
         intent.putExtra("Total",Total);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(countDownTimer != null){
+            countDownTimer.cancel();
+        }
+
     }
 }
