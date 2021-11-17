@@ -7,6 +7,9 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +22,7 @@ import java.util.Locale;
 
 public class Easy extends AppCompatActivity {
 
-    private static final long COUNTDOWN_IN_MILLIS = 20000;
+    private static final long COUNTDOWN_IN_MILLIS = 181000;
     private ColorStateList textColorDefaultcd;
     private CountDownTimer countDownTimer;
     private long timeLeftinMillis;
@@ -27,7 +30,7 @@ public class Easy extends AppCompatActivity {
 
     int Score = 0;
     int Total = 0;
-ArrayList<String> s;
+    ArrayList<String> s;
     ArrayAdapter arrayAdapter;
     int n = 0;
 
@@ -35,6 +38,10 @@ ArrayList<String> s;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("");
+
+
+
 
         textViewCountDown = findViewById(R.id.timer);
         textColorDefaultcd = textViewCountDown.getTextColors();
@@ -190,5 +197,30 @@ ArrayList<String> s;
             countDownTimer.cancel();
         }
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater ();
+        inflater.inflate (R.menu.menu, menu);
+        return true;}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.exit:
+                gameEnd();
+                return true;
+
+            case R.id.back:
+                Intent openMedium  = new Intent(Easy.this,HomeActivity.class);
+                startActivity(openMedium);
+                finish();
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Exit"
+        android:id="@+id/exit"
+        android:icon="@drawable/ic_baseline_power_settings_new_24"
+        app:showAsAction="ifRoom"/>
+    <item android:title="back"
+        android:id="@+id/back"
+        android:icon="@drawable/ic_baseline_home_24"
+        app:showAsAction="ifRoom"/>
+
+</menu>

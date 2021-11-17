@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button Easy, Medium, Hard;
+
     Intent intent;
     ImageView imageView;
     TextView textView;
@@ -35,11 +35,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams. FLAG_FULLSCREEN);
-//        getSupportActionBar().hide(); //This Line hides the action bar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams. FLAG_FULLSCREEN);
+        getSupportActionBar().hide(); //This Line hides the action bar
 
         setContentView(R.layout.intro);
+
 
         imageView = findViewById(R.id.imageView);
         textView = findViewById(R.id.textView7);
@@ -55,46 +56,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         new Handler().postDelayed(new Runnable() {
+
             @Override
             public void run() {
-        setContentView(R.layout.activity_choose_one);
-        intent = getIntent();
-
-        Easy = findViewById(R.id.easy);
-        Medium = findViewById(R.id.medium);
-        Hard = findViewById(R.id.hard);
-
-        Easy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent openEasy  = new Intent(MainActivity.this,Easy.class);
-                startActivity(openEasy);
-                finish();
-            }});
-
-        Medium.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent openMedium  = new Intent(MainActivity.this,Medium.class);
-                startActivity(openMedium);
-                finish();
-
-
-            }
-        });
-
-        Hard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent openHard = new Intent(MainActivity.this,Hard.class);
-                startActivity(openHard);
+                Intent openHome = new Intent(MainActivity.this,HomeActivity.class);
+                startActivity(openHome);
                 finish();
             }
-        });
-
             }
-        },3000);
+        ,3000);
 
 
     }

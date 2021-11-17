@@ -11,20 +11,24 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ScoreActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Hard"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Medium"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Easy"
-            android:exported="false" />
+            android:exported="true"
+            />
+
         <activity
-            android:name=".ChooseOne"
-            android:exported="false" />
-        <activity android:name=".MainActivity">
+            android:name=".HomeActivity"
+            />
+
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
